@@ -254,13 +254,92 @@ test_function("round", args = c("x", "digits"),
               not_called_msg = "Teises ülesadnes pead kasutama funktsiooni `round()`?",
               args_not_specified = paste("Funktsioonile `round` tuleb",  c("esimeseks argumendiks panna ümardatav arv", "teiseks argumendiks komakohtade arv")),
               incorrect_msg = paste("Funktsioonile `round` tuleb",  c("esimeseks argumendiks panna keskväärtus `m`.", "teiseks argumendiks komakohtade arv, praegu on see 2.")))
-success("Hea töö!")
+success_msg("Hea töö!")
 
 # If eval = NA, the arguments are not checked; it's only checked whether the argument was specified.
 # If eval = FALSE, the expressions of the parameters are compared as strings, not the value that results from evaluating the expression.
 # If eval = TRUE, which is the default, the expressions that are used to set the arguments are evaluated and their results compared.
 
+```
+
+## Building a plot!
+
+```yaml
+type: BulletExercise 
+lang: r 
+xp: 150 
+```
+
+`@pre_exercise_code`
+
+```{r}
+library(ggplot2)
+```
+
+`@sample_code`
+
+```{r}
+ggplot(mtcars, aes(x = mpg, y = wt))
+```
+
+***
+
+## Add a scatterplot
+
+```yaml
+type: NormalExercise
+xp: 30
+```
 
 
+`@instructions`
 
+Use `geom_point` to add a scatterplot
+
+`@hint`
+
+Submit the query!
+
+`@solution`
+
+```{r}
+ggplot(mtcars, aes(x = mpg, y = wt)) +
+  geom_point()
+```
+
+`@sct`
+
+```{r}
+# Test if user added geom_point
+```
+
+***
+
+## Add a regression line
+
+```yaml
+type: NormalExercise
+xp: 30
+```
+
+`@instructions`
+
+Use `geom_smooth` with `method` set to `lm` to add a regression line
+
+`@hint`
+
+Submit the query!
+
+`@solution`
+
+```{r}
+ggplot(mtcars, aes(x = mpg, y = wt)) +
+  geom_point() +
+  geom_smooth(method = 'lm')
+```
+
+`@sct`
+
+```{r}
+# Test if the user added a geom_smooth with method = 'lm'
 ```
