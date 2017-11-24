@@ -261,7 +261,6 @@ success_msg("Hea töö!")
 # If eval = TRUE, which is the default, the expressions that are used to set the arguments are evaluated and their results compared.
 
 ```
-
 ## Building a plot!
 
 ```yaml
